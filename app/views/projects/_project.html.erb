@@ -8,10 +8,14 @@
     <strong>Donation goal:</strong>
     <%= project.donation_goal %>
   </p>
+  <p>
+    <strong>Description:</strong>
+    <%= truncate(strip_tags(project.description)) %>
+  </p>
 
   <p>
     <strong>User:</strong>
-    <%= project.user_id %>
+    <%= project.user.email %>
   </p>
 
 </div>

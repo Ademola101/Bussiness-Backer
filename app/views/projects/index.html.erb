@@ -4,11 +4,14 @@
 
 <div id="projects">
   <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
+  
+  <div ><h4 > <%=project.title %> </h4>
+  <p> <%= project.donation_goal%> </p>
+  </div>
+
+  <div> <%= link_to('Edit this project', edit_project_path(project))%>
+  </div>
+    </p> 
   <% end %>
 </div>
 
-<%= link_to "New project", new_project_path %>
