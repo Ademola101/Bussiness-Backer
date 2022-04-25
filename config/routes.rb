@@ -1,11 +1,11 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   resources :projects
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+    authenticate :user, lambda { |u| u.admin? } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
 
-  # Defines the root path route ("/")
-  root "projects#index"
-  devise_scope :user do
-    get 'users/sign_out' => 'devise/sessions#destroy'
-  end
+  devise_for :users
+  root to: 'projects#index' # changed from 'home#index'
 end
