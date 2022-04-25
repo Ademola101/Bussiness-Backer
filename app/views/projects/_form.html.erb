@@ -1,4 +1,4 @@
-<%= form_with(model: project) do |form| %>
+<%= form_with(model: project, local: true, multipart: true) do |form| %>
   <% if project.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -24,6 +24,10 @@
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_field :description %>
+  </div>
+  <div>
+    <%= form.label :thumbnail, style: "display: block" %>
+    <%= form.file_field :thumbnail %>
   </div>
 
   <div>
