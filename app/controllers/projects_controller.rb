@@ -26,10 +26,11 @@ class ProjectsController < ApplicationController
     @project.user_id = current_user.id
     
 
-    respond_to do |format|
+    
       if @project.save
-        render  "projects/index"
+        redirect_to action: 'index'
       else
+        respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -40,8 +41,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to project_url(@project), notice: "Project was successfully updated." }
-        format.json { render :show, status: :ok, location: @project }
+        redirect_to @project
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }

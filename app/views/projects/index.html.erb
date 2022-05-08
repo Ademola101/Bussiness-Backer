@@ -2,11 +2,11 @@
 
 <h1 class = "d-flex justify-content-center align-items-center">Projects</h1>
 
-
-<div class = "d-flex flex-col flex-wrap">
+<%= debug @projects%>
+<div class = "d-flex flex-col flex-wrap w-100">
   <% @projects.each do |project| %>
   
-  <div  ><h4 > <%=project.title %> </h4>
+  <div class = "w-25" ><h4 > <%=project.title %> </h4>
   <p> <%= project.donation_goal%> </p>
   <%= truncate(strip_tags(project.description.to_s),length: 140)%>
    <%= link_to('Edit this project', edit_project_path(project),class:'bg-sky-600 m-3 p-1 rounded') %>
