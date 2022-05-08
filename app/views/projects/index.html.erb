@@ -7,7 +7,7 @@
 <div class = "d-flex flex-col flex-wrap w-100 ">
   <% @projects.each do |project| %>
   
-  <div class = "w-25 fs-4 mt-4" ><h4 class= "text-center" >Title:  <%=project.title %> </h4>
+  <div class = "w-25 fs-4 mt-4 border thirty" ><h4 class= "text-center" >Title:  <%=project.title %> </h4>
   <p class= "text-center"> Donation goal: <%= project.donation_goal%> </p>
   <div class= "text-center">  Description:
   <%= truncate(strip_tags(project.description.to_s),length: 140)%>
