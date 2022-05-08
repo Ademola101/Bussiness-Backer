@@ -39,10 +39,10 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update
-    respond_to do |format|
-      if @project.update(project_params)
+    if @project.update(project_params)
         redirect_to @project
       else
+        respond_to do |format|
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
@@ -67,6 +67,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :donation_goal, :description)
+      params.require(:project).permit(:title, :donation_goal, :description, :thumbnail)
     end
 end
