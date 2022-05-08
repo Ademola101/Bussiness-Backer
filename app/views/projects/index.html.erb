@@ -7,9 +7,10 @@
   
   <div ><h4 > <%=project.title %> </h4>
   <p> <%= project.donation_goal%> </p>
+  <%= truncate(strip_tags(project.description.to_s),length: 140)%>
   </div>
 
-  <div> <%= link_to('Edit this project', edit_project_path(project))%>
+  <div> <%= link_to('Edit this project', edit_project_path(project),class:'bg-sky-600 m-3 p-1 rounded') %>
   </div>
     </p> 
   <% end %>
