@@ -1,4 +1,4 @@
-## Private Events
+## Business Backer
 
 A marketplace application which permits a business idea to be backed by willing users or be crowdfunded with stripe payment system
 
